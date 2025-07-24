@@ -41,7 +41,7 @@ export function Form({ type = "login" }) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="w-2/5 h-[70vh] mx-auto my-10 p-8 bg-white rounded-xl shadow-lg flex flex-col gap-4 justify-center"
+            className="w-3/5 md:w-2/5 h-[70vh] mx-auto my-10 p-8 bg-white rounded-xl shadow-lg flex flex-col gap-4 justify-center"
         >
             {type === "register" && (
                 <>
@@ -94,7 +94,7 @@ export function Form({ type = "login" }) {
             />
             <button
                 type="submit"
-                className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 hover:shadow-lg hover:cursor-pointer"
             >
                 {type === "login" ? "Login" : "Register"}
             </button>
