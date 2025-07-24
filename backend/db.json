@@ -31,6 +31,14 @@
       "name": "ahmed2",
       "age": "26",
       "id": 5
+    },
+    {
+      "email": "admin3@gmail.com",
+      "password": "$2a$10$wWYeFku5b8IHdWZBCfbANuluufNZKCmdpAX5FE9E9yl2Fq2EBPGNe",
+      "role": "admin",
+      "name": "admin3",
+      "age": "26",
+      "id": 6
     }
   ],
   "posts": [
@@ -208,6 +216,27 @@
       "userId": 2,
       "createdAt": 1753379483899,
       "id": 25
+    },
+    {
+      "title": "demo 33",
+      "body": "new post just posted",
+      "userId": 3,
+      "createdAt": 1753379656584,
+      "id": 26
+    },
+    {
+      "title": "hello new post",
+      "body": "new post just droped",
+      "userId": 3,
+      "createdAt": 1753379836879,
+      "id": 27
+    },
+    {
+      "title": "new admin arrive",
+      "body": "hi there i am the new admin",
+      "userId": 6,
+      "createdAt": 1753379934279,
+      "id": 28
     }
   ],
   "comments": [],
