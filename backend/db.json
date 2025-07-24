@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "email": "ahmed@gmail.com",
+      "password": "$2a$10$Dqnr3WldqqbAXDhYaaxJJuz.pieHdxlzWcuC7OfwHyNXqJ9ymC3Bq",
+      "id": 1
+    },
+    {
+      "email": "ahmedezzatkhalil2030@gmail.com",
+      "password": "$2a$10$wlLcji6IET8rEcBRPQEgMeyOj.f9MfE4hcvlZrBQxkm2Krhs8ds22",
+      "id": 2
+    },
+    {
+      "email": "po@gmail.com",
+      "password": "$2a$10$W7hXQUvAcfCl5bSBEU46wuGaOricAmbb7kJuq.JOsASd94C.AwGEy",
+      "id": 3
+    },
+    {
+      "email": "not@gmail.com",
+      "password": "$2a$10$xyN.3n0mwBg65VFdpf0JwOrpGSqHhLZtHj3QpVxxb5k62Kb.xBBMO",
+      "id": 4
+    },
+    {
+      "email": "pro@gmail.com",
+      "password": "$2a$10$jQT2DlWuFrwivc/H5/oAoe8XSxtduI4p97bIdBijAgHeoWmAVyWwu",
+      "id": 5
+    }
+  ],
+  "posts": [],
+  "comments": [],
+  "likes": []
+}
