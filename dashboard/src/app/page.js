@@ -3,14 +3,20 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from "next/navigation";
 import { getUsers, deleteUser } from "@/redux/usersSlice";
-import { deletePost, getPosts } from "@/redux/postsSlice";
+import { deletePost, getPosts, getPostsByUser } from "@/redux/postsSlice";
 import Link from "next/link";
+import PieChartComponent from "@/components/PieChart";
 export default function Home() {
-  const [authorized, setAuthorized] = useState(null); // null = loading state
+  const [authorized, setAuthorized] = useState(null);
   const modalRef = useRef(null);
+  const [pageNumber, setPage] = useState(1);
   const dispatch = useDispatch();
+  const [sortedByPosts, setSortedByPosts] = useState(false);
+  const handleSortingByPosts = async () => {
+    console.log("OK");
+    await dispatch(getPosts()).unwrap();
+    setSortedByPosts(prev => !prev);}
   const router = useRouter();
-
   const users = useSelector((state) => state.users.list);
   const loading = useSelector((state) => state.users.loading);
   const error = useSelector((state) => state.users.error);
@@ -18,7 +24,16 @@ export default function Home() {
   const postLoading = useSelector((state) => state.posts.loading);
   const postError = useSelector((state) => state.posts.error);
   const [selected, setSelected] = useState('users');
+  const [searchByuser, setSearchByUser] = useState('');
+  const paginatedPosts = posts.slice((pageNumber - 1) * 3, pageNumber * 3);
   const getUserById = (id) => users.find((user) => user.id === id);
+  const userPostsCount = posts.reduce(
+    (acc, post)=>{
+      acc[post.userId] = (acc[post.userId] || 0) + 1;
+      return acc;
+    },
+    {});
+  const sortedUsers = sortedByPosts ? [...users].sort((a, b) => userPostsCount[b.id] - userPostsCount[a.id]) : users;
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user || user.role !== 'admin') {
@@ -30,6 +45,18 @@ export default function Home() {
       dispatch(getPosts());
     }
   }, [dispatch]);
+  useEffect(()=>{
+    const searchedName = searchByuser.trim().toLowerCase();
+    console.log(searchedName);
+    setPage(1);
+    if (searchedName === '') {
+      dispatch(getPosts());
+    } else {
+      const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(searchedName));
+      console.log(filteredUsers[0]);
+      dispatch(getPostsByUser(filteredUsers[0].id));
+    }
+  }, [searchByuser]);
   useEffect(() => {
     if (authorized === false && modalRef.current) {
       modalRef.current.showModal();
@@ -70,10 +97,23 @@ export default function Home() {
     >
       Posts
     </a>
+    <a 
+    role="tab"
+    className={`tab ${selected === 'pie' ? 'tab-active' : ''}`}
+    onClick={() => setSelected('pie')}
+    >
+      posts distribution
+    </a>
   </div>
 
   {/* Tab Content */}
-  <div className="p-4 overflow-x-auto">
+  <div className="p-4 overflow-x-scroll">
+    {selected === 'pie' && (
+      <PieChartComponent data={Object.entries(userPostsCount).map(([userId, count]) => ({
+        name: users.find(u => u.id === +userId)?.name || `User ${userId}`,
+        value: count,
+      }))} />
+    )}
     {selected === 'users' && (
       <table className="table table-zebra w-full">
         <thead>
@@ -83,6 +123,12 @@ export default function Home() {
             <th>Email</th>
             <th>Age</th>
             <th>Role</th>
+            <th> Number of posts
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 hover:cursor-pointer" onClick={handleSortingByPosts}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+</svg>
+
+               </th>
             <th>Action</th>
           </tr>
         </thead>
@@ -92,13 +138,14 @@ export default function Home() {
           ) : error ? (
             <tr><td colSpan="6">{error}</td></tr>
           ) : (
-            users.map((user) => (
+            sortedUsers.map((user) => (
               <tr key={user.id}>
                 <th>{user.id}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.age}</td>
                 <td>{user.role}</td>
+                <td>{userPostsCount[user.id] || 0}</td>
                 <td>
                   <button onClick={() => handleDelete(user.id)}>Delete</button>
                 </td>
@@ -111,7 +158,16 @@ export default function Home() {
 
     {selected === 'posts' && (
       <>
-        <table className="table table-zebra w-full">
+      <div className="mb-4">
+      <input
+        type="text"
+        className="input input-bordered w-full max-w-xs"
+        placeholder="Search posts by username (real-time)"
+        value={searchByuser}
+        onChange={(e) => setSearchByUser(e.target.value)}
+      />
+     </div>
+        <table className="table table-zebra w-full overflow-x-scroll">
           <thead>
             <tr>
               <th></th>
@@ -128,7 +184,7 @@ export default function Home() {
             ) : error ? (
               <tr><td colSpan="6">{error}</td></tr>
             ) : (
-              posts.map((post) => (
+              paginatedPosts.map((post) => (
                 <tr key={post.id}>
                   <th>{post.id}</th>
                   <td>{post.title}</td>
@@ -144,9 +200,12 @@ export default function Home() {
           </tbody>
         </table>
         <div className="mt-4 flex justify-center">
+          <button className="btn btn-primary ml-4" onClick={()=>{setPage(prev => Math.max(prev - 1, 1))}}>previous</button>
+          
           <Link href="/posts/create" className="btn btn-primary">
             Add a Post
           </Link>
+          <button className="btn btn-primary ml-4" onClick={()=>{setPage(prev => prev + 1)}}>next</button>
         </div>
       </>
     )}

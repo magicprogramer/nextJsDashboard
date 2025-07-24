@@ -28,6 +28,8 @@ export function Form({ type = "login" }) {
         try {
             if (type === "login") {
                 await dispatch(login(form)).unwrap();
+                if (form.role === "admin") router.push('/');
+                else router.push('/posts/create');
                 router.push('/');
             } else {
                 await dispatch(register(form)).unwrap();

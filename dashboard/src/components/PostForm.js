@@ -24,7 +24,7 @@ const PostForm = () => {
         e.preventDefault();
         try {
             await dispatch(addPost({ title, body, userId : user.id })).unwrap();
-            router.push('/');
+        
         } catch (err) {
             alert('There is a problem');
         }

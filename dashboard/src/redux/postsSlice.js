@@ -12,7 +12,9 @@ export const addPost = createAsyncThunk("posts/addpost", async (post, thunkAPI) 
 });
 export const getPostsByUser = createAsyncThunk("posts/getpostsbyuser", async (id, thunkAPI) => {
     try{
+        console.log(`id ${id}`);
         const res = await axios.get(`${URL}/posts?userId=${id}`);
+        console.log(res.data);
         return res.data;
     }
     catch (err) {
@@ -45,6 +47,8 @@ const postSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(getPosts.pending, (state) => {
+
+            state.list = [];
             state.loading = true;
         })
         .addCase(getPosts.fulfilled, (state, action) => {
@@ -57,7 +61,16 @@ const postSlice = createSlice({
         })
         .addCase(deletePost.fulfilled, (state, action) => {
             state.list = state.list.filter((post) => String(post.id) !== String(action.payload));
+        })
+        .addCase(getPostsByUser.fulfilled, (state, action) => {
+            state.loading = false;
+            state.list = action.payload;
+        })
+        .addCase(getPostsByUser.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
         });
+
     },
 
 })
