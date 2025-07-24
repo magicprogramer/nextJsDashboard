@@ -19,7 +19,9 @@ export default function NavBar() {
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">Site</a>
+  <Link href="/">
+    Dashboard
+</Link>
   </div>
   <div className="navbar-end pr-4">
     <button className="btn btn-ghost btn-circle">

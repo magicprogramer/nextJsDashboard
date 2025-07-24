@@ -80,7 +80,7 @@ export default function Home() {
     );
   }
   return (
-    <div className="w-[60vw] h-[70vh] m-auto border-2 border-black">
+    <div className="w-[60vw] h-[80vh] m-auto border-2 border-black overflow-scroll">
   {/* Tabs Header */}
   <div className="tabs tabs-lift justify-center">
     <a
@@ -107,7 +107,7 @@ export default function Home() {
   </div>
 
   {/* Tab Content */}
-  <div className="p-4 overflow-x-scroll">
+  <div className="p-4 overflow-x-scroll h-full">
     {selected === 'pie' && (
       <PieChartComponent data={Object.entries(userPostsCount).map(([userId, count]) => ({
         name: users.find(u => u.id === +userId)?.name || `User ${userId}`,
@@ -167,7 +167,8 @@ export default function Home() {
         onChange={(e) => setSearchByUser(e.target.value)}
       />
      </div>
-        <table className="table table-zebra w-full overflow-x-scroll">
+     <div>
+        <table className="table table-zebra xs:w-[100vw] xs:overflow-x-scroll">
           <thead>
             <tr>
               <th></th>
@@ -199,6 +200,7 @@ export default function Home() {
             )}
           </tbody>
         </table>
+      </div>
         <div className="mt-4 flex justify-center">
           <button className="btn btn-primary ml-4" onClick={()=>{setPage(prev => Math.max(prev - 1, 1))}}>previous</button>
           

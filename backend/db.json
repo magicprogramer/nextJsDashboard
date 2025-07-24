@@ -2,31 +2,163 @@
   "users": [
     {
       "email": "ahmed@gmail.com",
-      "password": "$2a$10$Dqnr3WldqqbAXDhYaaxJJuz.pieHdxlzWcuC7OfwHyNXqJ9ymC3Bq",
-      "id": 1
-    },
-    {
-      "email": "ahmedezzatkhalil2030@gmail.com",
-      "password": "$2a$10$wlLcji6IET8rEcBRPQEgMeyOj.f9MfE4hcvlZrBQxkm2Krhs8ds22",
+      "password": "$2a$10$sojSCQgoDnGRmkh2rNsYa.WkeRv1bQVR1sbq96hT5CJmqZtv8QKzG",
+      "role": "user",
+      "name": "a",
+      "age": 0,
       "id": 2
     },
     {
-      "email": "po@gmail.com",
-      "password": "$2a$10$W7hXQUvAcfCl5bSBEU46wuGaOricAmbb7kJuq.JOsASd94C.AwGEy",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$r9/gRtED.pUQLN.4zjfH7.O8oKJkq8ixkzqIRAFQMqRriBdotHqLC",
+      "role": "admin",
+      "name": "admin",
+      "age": "23",
+      "id": 3
+    }
+  ],
+  "posts": [
+    {
+      "title": "new post",
+      "body": "ok this is a new post",
+      "userId": 3,
+      "createdAt": 1753366389523,
+      "id": 1
+    },
+    {
+      "title": "post 1",
+      "body": "this is my new post here ahmed",
+      "userId": 2,
+      "createdAt": 1753366624493,
+      "id": 2
+    },
+    {
+      "title": "post 2",
+      "body": "hi there again",
+      "userId": 2,
+      "createdAt": 1753366778216,
       "id": 3
     },
     {
-      "email": "not@gmail.com",
-      "password": "$2a$10$xyN.3n0mwBg65VFdpf0JwOrpGSqHhLZtHj3QpVxxb5k62Kb.xBBMO",
+      "title": "post 2",
+      "body": "hi there again",
+      "userId": 2,
+      "createdAt": 1753366782607,
       "id": 4
     },
     {
-      "email": "pro@gmail.com",
-      "password": "$2a$10$jQT2DlWuFrwivc/H5/oAoe8XSxtduI4p97bIdBijAgHeoWmAVyWwu",
+      "title": "post 2",
+      "body": "hi there again",
+      "userId": 2,
+      "createdAt": 1753366783279,
       "id": 5
+    },
+    {
+      "title": "post 2",
+      "body": "hi there again",
+      "userId": 2,
+      "createdAt": 1753366783447,
+      "id": 6
+    },
+    {
+      "title": "post 2",
+      "body": "hi there again",
+      "userId": 2,
+      "createdAt": 1753366783669,
+      "id": 7
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367942809,
+      "id": 8
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367943994,
+      "id": 9
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367944824,
+      "id": 10
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367945472,
+      "id": 11
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367945922,
+      "id": 12
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367946362,
+      "id": 13
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367946845,
+      "id": 14
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367947172,
+      "id": 15
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367947566,
+      "id": 16
+    },
+    {
+      "title": "post1",
+      "body": "new post",
+      "userId": 3,
+      "createdAt": 1753367947876,
+      "id": 17
+    },
+    {
+      "title": "worked ",
+      "body": "this is working",
+      "userId": 3,
+      "createdAt": 1753377945480,
+      "id": 18
+    },
+    {
+      "title": "worked ",
+      "body": "this is working",
+      "userId": 3,
+      "createdAt": 1753377948313,
+      "id": 19
+    },
+    {
+      "title": "worked ",
+      "body": "this is working",
+      "userId": 3,
+      "createdAt": 1753377948538,
+      "id": 20
     }
   ],
-  "posts": [],
   "comments": [],
   "likes": []
 }
