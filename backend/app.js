@@ -13,5 +13,5 @@ app.use(auth);
 app.use(router);
 
 app.listen(8000, () => {
-  console.log('JSON Server is running on http://localhost:3030');
+  console.log('JSON Server is running on http://localhost:8000');
 });
