@@ -201,13 +201,13 @@ export default function Home() {
           </tbody>
         </table>
       </div>
-        <div className="mt-4 flex justify-center">
+      <div className="mt-4 flex flex-col md:flex-row justify-between items-center px-4">
           <button className="btn btn-primary ml-4" onClick={()=>{setPage(prev => Math.max(prev - 1, 1))}}>previous</button>
           
           <Link href="/posts/create" className="btn btn-primary">
             Add a Post
           </Link>
-          <button className="btn btn-primary ml-4" onClick={()=>{setPage(prev => prev + 1)}}>next</button>
+          <button className="btn btn-primary ml-4 " onClick={()=>{setPage(prev => prev + 1)}}>next</button>
         </div>
       </>
     )}

@@ -13,8 +13,13 @@ export default function NavBar() {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
           
         <Link href = "/">Dashboard</Link>
-        <Link href = "login">Login</Link>
+        <Link href = "/posts/create">Create Post</Link>
+        {
+          <Link href = "login">Login</Link>
+        }
+        {
         <Link href = "register">Register</Link>
+        }
       </ul>
     </div>
   </div>

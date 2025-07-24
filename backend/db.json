@@ -15,6 +15,22 @@
       "name": "admin",
       "age": "23",
       "id": 3
+    },
+    {
+      "email": "admin2@gmail.com",
+      "password": "$2a$10$yinHq.ptpY8G0q1E8QeZ7OgE77Du5vjTtVCWRnYuhaHjH6BM23zKG",
+      "role": "admin",
+      "name": "admin2",
+      "age": "24",
+      "id": 4
+    },
+    {
+      "email": "ahmedezzatkhalil2030@gmail.com",
+      "password": "$2a$10$ttRLv4lc4XKkzvkQaRWQYeB33pP/zWcJfKfdj81KxrjTT2SqmFXCG",
+      "role": "user",
+      "name": "ahmed2",
+      "age": "26",
+      "id": 5
     }
   ],
   "posts": [
@@ -157,6 +173,41 @@
       "userId": 3,
       "createdAt": 1753377948538,
       "id": 20
+    },
+    {
+      "title": "new posts 1",
+      "body": "this is a new post",
+      "userId": 4,
+      "createdAt": 1753378396788,
+      "id": 21
+    },
+    {
+      "title": "new posts 1",
+      "body": "this is a new post",
+      "userId": 4,
+      "createdAt": 1753378403747,
+      "id": 22
+    },
+    {
+      "title": "",
+      "body": "",
+      "userId": 3,
+      "createdAt": 1753379288233,
+      "id": 23
+    },
+    {
+      "title": "",
+      "body": "",
+      "userId": 3,
+      "createdAt": 1753379290733,
+      "id": 24
+    },
+    {
+      "title": "demo post",
+      "body": "hi every one ",
+      "userId": 2,
+      "createdAt": 1753379483899,
+      "id": 25
     }
   ],
   "comments": [],

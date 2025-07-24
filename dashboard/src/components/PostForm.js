@@ -31,21 +31,34 @@ const PostForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Body"
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
-            />
-            <button type="submit">Submit</button>
-        </form>
+        <form
+  onSubmit={handleSubmit}
+  className="w-3/5 md:w-2/5 h-[70vh] mx-auto my-10 p-8 bg-white rounded-xl shadow-lg flex flex-col gap-4 justify-center"
+>
+  <input
+    type="text"
+    placeholder="Title"
+    value={title}
+    onChange={(e) => setTitle(e.target.value)}
+    required
+    className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <input
+    type="text"
+    placeholder="Body"
+    value={body}
+    onChange={(e) => setBody(e.target.value)}
+    required
+    className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <button
+    type="submit"
+    className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 hover:shadow-lg hover:cursor-pointer"
+  >
+    Submit
+  </button>
+</form>
+
     );
 };
 
