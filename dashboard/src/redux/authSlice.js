@@ -16,7 +16,7 @@ export const register = createAsyncThunk("auth/register", async (user, thunkAPI)
     const res = await axios.post(`${URL}/register`, user);
     return res.data;
   } catch (err) {
-    return thunkAPI.rejectWithValue(err.response.data);
+    return thunkAPI.rejectWithValue(err.response.data || err.message);
   }
 });
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
@@ -24,7 +24,8 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
     const res = await axios.post(`${URL}/login`, user);
     return res.data;
   } catch (err) {
-    return thunkAPI.rejectWithValue(err.response.data);
+    console.log("bad");
+    return thunkAPI.rejectWithValue(err.response.data || err.message);
   }
 });
 
